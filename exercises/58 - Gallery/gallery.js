@@ -34,3 +34,18 @@ function Gallery(gallery) {
 
   this.modal.addEventListener('click', this.handleClickOutside);
 }
+
+Gallery.prototype.openModal = function() {
+  console.info('Opening Modal...');
+  // First check if the modal is already open
+  if (this.modal.matches('.open')) {
+    console.info('Madal already open');
+    return; // stop the function from running
+  }
+  this.modal.classList.add('open');
+
+  // Event listeners to be bound when we open the modal:
+  window.addEventListener('keyup', this.handleKeyUp);
+  this.nextButton.addEventListener('click', this.showNextImage);
+  this.prevButton.addEventListener('click', this.showPrevImage);
+};
