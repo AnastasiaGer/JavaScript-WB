@@ -75,3 +75,9 @@ Gallery.prototype.showNextImage = function() {
     this.currentImage.nextElementSibling || this.gallery.firstElementChild
   );
 };
+
+Gallery.prototype.showPrevImage = function() {
+  this.showImage(
+    this.currentImage.previousElementSibling || this.gallery.lastElementChild
+  );
+};
