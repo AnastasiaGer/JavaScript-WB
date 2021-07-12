@@ -57,3 +57,9 @@ Gallery.prototype.closeModal = function() {
   this.nextButton.removeEventListener('click', this.showNextImage);
   this.prevButton.removeEventListener('click', this.showPrevImage);
 };
+
+Gallery.prototype.handleClickOutside = function(e) {
+  if (e.target === e.currentTarget) {
+    this.closeModal();
+  }
+};
