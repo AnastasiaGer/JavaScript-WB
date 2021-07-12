@@ -95,3 +95,10 @@ Gallery.prototype.showImage = function(el) {
   this.currentImage = el;
   this.openModal();
 };
+
+// Use it on the page
+
+const gallery1 = new Gallery(document.querySelector('.gallery1'));
+const gallery2 = new Gallery(document.querySelector('.gallery2'));
+
+console.log(gallery1, gallery2);
