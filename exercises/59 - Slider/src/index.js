@@ -17,6 +17,7 @@ function Slider(slider) {
   prevButton.addEventListener('click', () => this.move('back'));
   nextButton.addEventListener('click', () => this.move());
 }
+
 Slider.prototype.startSlider = function() {
   this.current =
     this.slider.querySelector('.current') || this.slides.firstElementChild;
