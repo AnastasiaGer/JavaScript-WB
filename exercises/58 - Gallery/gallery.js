@@ -63,3 +63,9 @@ Gallery.prototype.handleClickOutside = function(e) {
     this.closeModal();
   }
 };
+
+Gallery.prototype.handleKeyUp = function(event) {
+  if (event.key === 'Escape') return this.closeModal();
+  if (event.key === 'ArrowRight') return this.showNextImage();
+  if (event.key === 'ArrowLeft') return this.showPrevImage();
+};
