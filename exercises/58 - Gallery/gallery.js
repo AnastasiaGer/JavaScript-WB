@@ -81,3 +81,17 @@ Gallery.prototype.showPrevImage = function() {
     this.currentImage.previousElementSibling || this.gallery.lastElementChild
   );
 };
+
+Gallery.prototype.showImage = function(el) {
+  if (!el) {
+    console.info('no image to show');
+    return;
+  }
+  // update the modal with this info
+  console.log(el);
+  this.modal.querySelector('img').src = el.src;
+  this.modal.querySelector('h2').textContent = el.title;
+  this.modal.querySelector('figure p').textContent = el.dataset.description;
+  this.currentImage = el;
+  this.openModal();
+};
