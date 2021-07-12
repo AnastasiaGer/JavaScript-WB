@@ -49,3 +49,11 @@ Gallery.prototype.openModal = function() {
   this.nextButton.addEventListener('click', this.showNextImage);
   this.prevButton.addEventListener('click', this.showPrevImage);
 };
+
+Gallery.prototype.closeModal = function() {
+  this.modal.classList.remove('open');
+  // TODO: add event listeners for clicks and keyboard..
+  window.removeEventListener('keyup', this.handleKeyUp);
+  this.nextButton.removeEventListener('click', this.showNextImage);
+  this.prevButton.removeEventListener('click', this.showPrevImage);
+};
