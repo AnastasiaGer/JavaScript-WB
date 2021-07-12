@@ -69,3 +69,9 @@ Gallery.prototype.handleKeyUp = function(event) {
   if (event.key === 'ArrowRight') return this.showNextImage();
   if (event.key === 'ArrowLeft') return this.showPrevImage();
 };
+Gallery.prototype.showNextImage = function() {
+  console.log('SHOWING NEXT IMAGE!!!');
+  this.showImage(
+    this.currentImage.nextElementSibling || this.gallery.firstElementChild
+  );
+};
