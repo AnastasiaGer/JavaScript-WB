@@ -18,6 +18,20 @@ function Slider(slider) {
   nextButton.addEventListener('click', () => this.move());
 }
 
+Slider.prototype.startSlider = function() {
+  this.current =
+    this.slider.querySelector('.current') || this.slides.firstElementChild;
+  this.prev =
+    this.current.previousElementSibling || this.slides.lastElementChild;
+  this.next = this.current.nextElementSibling || this.slides.firstElementChild;
+};
+
+Slider.prototype.applyClasses = function() {
+  this.current.classList.add('current');
+  this.prev.classList.add('prev');
+  this.next.classList.add('next');
+};
+
 Slider.prototype.move = function(direction) {
   // first strip all the classes off the current slides
   const classesToRemove = ['prev', 'current', 'next'];
