@@ -2,6 +2,13 @@ function wait(ms = 0) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function destroyPopup(popup) {
+  popup.classList.remove('open')
+  await wait(1000)
+  popup.remove();
+  
+}
+
 function ask(options) {
   return new Promise(async function (resolve) {
     const popup = document.createElement('form')
@@ -21,7 +28,11 @@ function ask(options) {
       popup.firstChild.appendChild(skipButton)
     }
 
-
+    popup.addEventListener('submit', function(e) {
+      e.preventDefault();
+      resolve(e.target.input.value)
+      destroyPopup(popup)
+    }, {once: true}) 
 
 
     document.body.appendChild(popup)
